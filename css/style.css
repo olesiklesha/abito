@@ -22,6 +22,12 @@ body {
   margin-bottom: 24px;
 }
 
+.navbar-panel {
+  flex-grow: 1;
+  display: flex;
+  align-items: center;
+}
+
 .navbar-menu {
   margin-right: auto;
 }
@@ -102,7 +108,7 @@ body {
 .page-content {
   display: grid;
   grid-template-columns: 9fr 3fr;
-  grid-column-gap: 30px;
+  grid-column-gap: 10px;
 }
 
 .card-image {
@@ -119,10 +125,7 @@ body {
 
 .card {
   margin-bottom: 20px;
-}
-
-.card:not(:nth-child(3n)) {
-  margin-right: 20px;
+  margin-right: 15px;
 }
 
 .card-title {
@@ -329,3 +332,138 @@ body {
   border-radius: 5px;
   color: #ffffff;
 }
+
+.menu-button {
+  background-color: #ffffff;
+  border: none;
+  cursor: pointer;
+  display: none;
+}
+
+.close-menu {
+  display: none;
+}
+
+@media (max-width: 1200px) {
+  .container {
+    max-width: 960px;
+  }
+
+  .card {
+    width: 45%;
+  }
+
+  .card-image {
+    width: 100%;
+    height: 200px;
+  }
+}
+
+@media (max-width: 992px) {
+  .container {
+    max-width: 640px;
+  }
+
+  .card-image {
+    height: 150px;
+  }
+}
+
+
+@media (max-width: 768px) {
+  .container {
+    max-width: 560px;
+  }
+
+  .card {
+    width: 100%;
+  }
+
+  .page-content {
+    grid-template-columns: 8fr 4fr;
+  }
+
+  .menu-button {
+    display: block;
+  }
+
+  .navbar-panel {
+    position: fixed;
+    right: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    background-color: #ffffff;
+    z-index: 9;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    transition: transform 0.2s opacity 0.2s;
+    transform: translateX(100%); /* уберём меню в сторону */
+    opacity: 0;
+  }
+  
+  .is-open {
+    transform: translateX(0%);
+    opacity: 1;
+  }
+
+  .navbar-menu {
+    margin-left: auto;
+    margin-bottom: 20px;
+  }
+
+  .menu {
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .menu-item:not(:last-child) {
+    margin-right: 0;
+  }
+
+  .menu-item {
+    margin-bottom: 10px;
+  }
+
+  .button-group {
+    display: flex;
+    flex-direction: column;
+  }
+
+  .close-menu {
+    display: block;
+    position: absolute; 
+    right: 30px;
+    top: 30px;
+    cursor: pointer;
+    background-color: #ffffff;
+    border: none;
+  }
+
+}
+
+@media (max-width: 576px) {
+  .container {
+    width: 90%;
+  }
+
+  .page-content {
+    grid-template-columns: 12fr;
+  }
+
+  .card-image {
+    height: 250px;
+  }
+
+  .card {
+    margin-right: 0;
+  }
+
+  .search-button-text {
+    display: none;
+  }
+}
+
+/* TODO add single page's adaptive */
